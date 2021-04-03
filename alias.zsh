@@ -44,7 +44,7 @@ gch() {
 }
 
 gup() {
-	if [[ $1 -eq "-h" ]]; then
+	if [[ -n $1 ]] && [[ $1 -eq "-h" ]]; then
 		echo "Push up the current branch to the origin remote."
 		echo "Example: gup"
 		echo "		   gup --force"
