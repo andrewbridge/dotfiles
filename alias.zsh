@@ -20,7 +20,7 @@ gofwd() {
 alias goback='git checkout HEAD~'
 
 gch() {
-	if [[ $1 -eq "-h" ]]; then
+	if [[ $1 == "-h" ]]; then
 		echo "Checkout a base branch and pull the latest changes and branch from it."
 		echo "Example: gch GH1234"
 		echo "		   gch main GH1234"
@@ -44,7 +44,7 @@ gch() {
 }
 
 gup() {
-	if [[ -n $1 ]] && [[ $1 -eq "-h" ]]; then
+	if [[ -n $1 ]] && [[ $1 == "-h" ]]; then
 		echo "Push up the current branch to the origin remote."
 		echo "Example: gup"
 		echo "		   gup --force"
@@ -56,7 +56,7 @@ gup() {
 }
 
 gcpf() {
-	if [[ $1 -eq "-h" ]]; then
+	if [[ $1 == "-h" ]]; then
 		echo "Cherry pick a file from another branch."
 		echo "Example: gcpf another-branch ./src/Views/App.vue"
 		return;
@@ -66,7 +66,7 @@ gcpf() {
 }
 
 gbn() {
-	if [[ $1 -eq "-h" ]]; then
+	if [[ $1 == "-h" ]]; then
 		echo "Creates a bundle for the current repo."
 		echo "Example: gbn"
 		return;
