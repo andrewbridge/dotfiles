@@ -28,6 +28,14 @@ gch() {
 	fi
 
 	if [[ $# -eq 1 ]]; then
+		# Check if the branch already exists and just check it out
+		exists=`git branch | grep -wic "\s$1$"`
+		if [[ $exists -eq 1 ]]; then
+			echo "Branch already exists, attempting to check out"
+			git checkout $1
+			return
+		fi
+
 		configDefaultBranch=`git config --get init.defaultBranch`
 		defaultBranch=${configDefaultBranch:-master}
 		configbase=`git config --get gch.branching-base`
